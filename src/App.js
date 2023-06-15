@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import AddUser from "./components/AddUser/AddUser";
 import Home from "./components/Home/Home";
@@ -12,24 +12,14 @@ function App() {
       <Router>
         <div>
           <Header></Header>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route exact path="/users">
-              <Users></Users>
-            </Route>
-            <Route path="/users/add">
-              <AddUser></AddUser>
-            </Route>
-            <Route path="/users/add">
-              <AddUser></AddUser>
-            </Route>
-            <Route path="/users/update/:id">
-              <UpdateUser></UpdateUser>
-            </Route>
+          <Routes>
 
-          </Switch>
+            <Route path="/" element={<Home />}/>
+            <Route path="/users" element={<Users />}/>
+            <Route path="/users/add" element={<AddUser />}/>
+            <Route path="/users/update/:id" element={<UpdateUser />}/>
+
+          </Routes>
         </div>
       </Router>
     </div>
